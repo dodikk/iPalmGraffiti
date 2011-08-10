@@ -2,7 +2,10 @@ A PalmOS-like textual gestures recognition.
 It implements a custom gesture recognizer which records all the points the touch goes through and analyzes them.
 The first version should support only English alphabet ( just as the original graffiti did ).
 
-License : BSD
+
+License                : BSD
+iOS deployment version : iOS 4.0
+ARC enabled            : NO
 --------------------
 
 

@@ -7,11 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5357C21813F27B4400E16537 /* GRGraffitiGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5357C21613F27B4400E16537 /* GRGraffitiGestureRecognizer.h */; };
+		5357C21B13F27B5800E16537 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5357C21A13F27B5800E16537 /* UIKit.framework */; };
+		5357C27713F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5357C27613F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm */; };
+		5357C28613F280A100E16537 /* RGGraffitiRecognizerState.h in Headers */ = {isa = PBXBuildFile; fileRef = 5357C28413F280A100E16537 /* RGGraffitiRecognizerState.h */; };
+		5357C28913F2812100E16537 /* GRTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5357C28813F2812100E16537 /* GRTypes.h */; };
+		5390617D13F28D5100BF0469 /* GRImageRecognizersFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390617B13F28D5100BF0469 /* GRImageRecognizersFactory.h */; };
+		5390617E13F28D5100BF0469 /* GRImageRecognizersFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5390617C13F28D5100BF0469 /* GRImageRecognizersFactory.m */; };
+		5390618213F28D9600BF0469 /* GRImageRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390618013F28D9600BF0469 /* GRImageRecognizer.h */; };
+		5390618313F28D9600BF0469 /* GRImageRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5390618113F28D9600BF0469 /* GRImageRecognizer.m */; };
+		5390619813F28EDD00BF0469 /* GRGraffitiAlphabets.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390619613F28EDD00BF0469 /* GRGraffitiAlphabets.h */; };
 		AA747D9F0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5357C21613F27B4400E16537 /* GRGraffitiGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRGraffitiGestureRecognizer.h; sourceTree = "<group>"; };
+		5357C21A13F27B5800E16537 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5357C27613F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GRGraffitiGestureRecognizer.mm; sourceTree = "<group>"; };
+		5357C28413F280A100E16537 /* RGGraffitiRecognizerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGGraffitiRecognizerState.h; sourceTree = "<group>"; };
+		5357C28813F2812100E16537 /* GRTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTypes.h; sourceTree = "<group>"; };
+		5390617B13F28D5100BF0469 /* GRImageRecognizersFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRImageRecognizersFactory.h; sourceTree = "<group>"; };
+		5390617C13F28D5100BF0469 /* GRImageRecognizersFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRImageRecognizersFactory.m; sourceTree = "<group>"; };
+		5390618013F28D9600BF0469 /* GRImageRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRImageRecognizer.h; sourceTree = "<group>"; };
+		5390618113F28D9600BF0469 /* GRImageRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRImageRecognizer.m; sourceTree = "<group>"; };
+		5390619613F28EDD00BF0469 /* GRGraffitiAlphabets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRGraffitiAlphabets.h; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraffitiRecognizers_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libGraffitiRecognizers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGraffitiRecognizers.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,6 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				5357C21B13F27B5800E16537 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,7 +61,8 @@
 		0867D691FE84028FC02AAC07 /* GraffitiRecognizers */ = {
 			isa = PBXGroup;
 			children = (
-				08FB77AEFE84172EC02AAC07 /* Classes */,
+				5357C21413F27AB900E16537 /* GraffitiRecognizers */,
+				5357C21513F27AB900E16537 /* src */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
@@ -52,15 +74,9 @@
 			isa = PBXGroup;
 			children = (
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				5357C21A13F27B5800E16537 /* UIKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		08FB77AEFE84172EC02AAC07 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Classes;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -71,6 +87,45 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		5357C21413F27AB900E16537 /* GraffitiRecognizers */ = {
+			isa = PBXGroup;
+			children = (
+				5357C21613F27B4400E16537 /* GRGraffitiGestureRecognizer.h */,
+				5357C28813F2812100E16537 /* GRTypes.h */,
+				5390619613F28EDD00BF0469 /* GRGraffitiAlphabets.h */,
+			);
+			path = GraffitiRecognizers;
+			sourceTree = "<group>";
+		};
+		5357C21513F27AB900E16537 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				539061ED13F292EF00BF0469 /* language-english */,
+				539061EE13F292EF00BF0469 /* numbers-arabic */,
+				5357C27613F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm */,
+				5357C28413F280A100E16537 /* RGGraffitiRecognizerState.h */,
+				5390618013F28D9600BF0469 /* GRImageRecognizer.h */,
+				5390618113F28D9600BF0469 /* GRImageRecognizer.m */,
+				5390617B13F28D5100BF0469 /* GRImageRecognizersFactory.h */,
+				5390617C13F28D5100BF0469 /* GRImageRecognizersFactory.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		539061ED13F292EF00BF0469 /* language-english */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "language-english";
+			sourceTree = "<group>";
+		};
+		539061EE13F292EF00BF0469 /* numbers-arabic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "numbers-arabic";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -79,6 +134,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch in Headers */,
+				5357C21813F27B4400E16537 /* GRGraffitiGestureRecognizer.h in Headers */,
+				5357C28613F280A100E16537 /* RGGraffitiRecognizerState.h in Headers */,
+				5357C28913F2812100E16537 /* GRTypes.h in Headers */,
+				5390617D13F28D5100BF0469 /* GRImageRecognizersFactory.h in Headers */,
+				5390618213F28D9600BF0469 /* GRImageRecognizer.h in Headers */,
+				5390619813F28EDD00BF0469 /* GRGraffitiAlphabets.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +193,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5357C27713F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm in Sources */,
+				5390617E13F28D5100BF0469 /* GRImageRecognizersFactory.m in Sources */,
+				5390618313F28D9600BF0469 /* GRImageRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,13 +238,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				HEADER_SEARCH_PATHS = "./**";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "./**";
 			};
 			name = Debug;
 		};
@@ -188,12 +260,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				HEADER_SEARCH_PATHS = "./**";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "./**";
 			};
 			name = Release;
 		};

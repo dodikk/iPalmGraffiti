@@ -4,6 +4,7 @@
 #include "RGGraffitiRecognizerState.h"
 #import  "GRImageRecognizersFactory.h"
 #import  "GRImageRecognizer.h"
+#import  "GRPointsDumper.h"
 
 @interface GRGraffitiGestureRecognizer ()
 
@@ -133,8 +134,15 @@
       return;
    }
    
-   NSArray* recognized_letters_ = [ image_recognizer_ recognizeLetterByXPoints: &self.graffitiState.xPoints.at(0)
-                                                                       yPoints: &self.graffitiState.yPoints.at(0)
+   CGFloat* raw_x_data_ = &self.graffitiState.xPoints.at(0);
+   CGFloat* raw_y_data_ = &self.graffitiState.yPoints.at(0);
+   
+   [ GRPointsDumper dumpToFileXPoints: raw_x_data_
+                              yPoints: raw_y_data_
+                                count: points_count_ ];
+
+   NSArray* recognized_letters_ = [ image_recognizer_ recognizeLetterByXPoints: raw_x_data_
+                                                                       yPoints: raw_y_data_
                                                                          count: points_count_ ];
    
 

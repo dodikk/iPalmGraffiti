@@ -17,6 +17,8 @@
 		5390618213F28D9600BF0469 /* GRImageRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390618013F28D9600BF0469 /* GRImageRecognizer.h */; };
 		5390618313F28D9600BF0469 /* GRImageRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5390618113F28D9600BF0469 /* GRImageRecognizer.m */; };
 		5390619813F28EDD00BF0469 /* GRGraffitiAlphabets.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390619613F28EDD00BF0469 /* GRGraffitiAlphabets.h */; };
+		5390620313F2981700BF0469 /* GRPointsDumper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390620113F2981700BF0469 /* GRPointsDumper.h */; };
+		5390620413F2981700BF0469 /* GRPointsDumper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5390620213F2981700BF0469 /* GRPointsDumper.m */; };
 		AA747D9F0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		5390618013F28D9600BF0469 /* GRImageRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRImageRecognizer.h; sourceTree = "<group>"; };
 		5390618113F28D9600BF0469 /* GRImageRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRImageRecognizer.m; sourceTree = "<group>"; };
 		5390619613F28EDD00BF0469 /* GRGraffitiAlphabets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRGraffitiAlphabets.h; sourceTree = "<group>"; };
+		5390620113F2981700BF0469 /* GRPointsDumper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRPointsDumper.h; sourceTree = "<group>"; };
+		5390620213F2981700BF0469 /* GRPointsDumper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRPointsDumper.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraffitiRecognizers_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libGraffitiRecognizers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGraffitiRecognizers.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +106,7 @@
 			children = (
 				539061ED13F292EF00BF0469 /* language-english */,
 				539061EE13F292EF00BF0469 /* numbers-arabic */,
+				5390620013F2966F00BF0469 /* utils */,
 				5357C27613F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm */,
 				5357C28413F280A100E16537 /* RGGraffitiRecognizerState.h */,
 				5390618013F28D9600BF0469 /* GRImageRecognizer.h */,
@@ -126,6 +131,15 @@
 			path = "numbers-arabic";
 			sourceTree = "<group>";
 		};
+		5390620013F2966F00BF0469 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				5390620113F2981700BF0469 /* GRPointsDumper.h */,
+				5390620213F2981700BF0469 /* GRPointsDumper.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -140,6 +154,7 @@
 				5390617D13F28D5100BF0469 /* GRImageRecognizersFactory.h in Headers */,
 				5390618213F28D9600BF0469 /* GRImageRecognizer.h in Headers */,
 				5390619813F28EDD00BF0469 /* GRGraffitiAlphabets.h in Headers */,
+				5390620313F2981700BF0469 /* GRPointsDumper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +211,7 @@
 				5357C27713F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm in Sources */,
 				5390617E13F28D5100BF0469 /* GRImageRecognizersFactory.m in Sources */,
 				5390618313F28D9600BF0469 /* GRImageRecognizer.m in Sources */,
+				5390620413F2981700BF0469 /* GRPointsDumper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

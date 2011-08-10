@@ -17,6 +17,8 @@
 		28D7ACF80DDB3853001CB0EB /* iPalmGraffitiDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* iPalmGraffitiDemoViewController.m */; };
 		5390624213F29FA000BF0469 /* libGraffitiRecognizers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5390622D13F29EE600BF0469 /* libGraffitiRecognizers.a */; };
 		5390624E13F2A01500BF0469 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5390624D13F2A01500BF0469 /* libstdc++.dylib */; };
+		539062A613F2A2AF00BF0469 /* libGraffitiUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 539062A313F2A2A700BF0469 /* libGraffitiUI.a */; };
+		539062A713F2A2B200BF0469 /* GraffitiUI-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 539062A513F2A2A700BF0469 /* GraffitiUI-Resources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,15 +26,43 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5390622813F29EE600BF0469 /* GraffitiRecognizers.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libGraffitiRecognizers.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = GraffitiRecognizers;
 		};
 		5390624313F29FA900BF0469 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5390622813F29EE600BF0469 /* GraffitiRecognizers.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* GraffitiRecognizers */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = GraffitiRecognizers;
+		};
+		539062A213F2A2A700BF0469 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libGraffitiUI.a */;
+			remoteInfo = GraffitiUI;
+		};
+		539062A413F2A2A700BF0469 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5390628513F2A25000BF0469 /* GraffitiUI-Resources.bundle */;
+			remoteInfo = "GraffitiUI-Resources";
+		};
+		539062A813F2A2BB00BF0469 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* GraffitiUI */;
+			remoteInfo = GraffitiUI;
+		};
+		539062AA13F2A2BB00BF0469 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5390628413F2A25000BF0469 /* GraffitiUI-Resources */;
+			remoteInfo = "GraffitiUI-Resources";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -51,6 +81,7 @@
 		32CA4F630368D1EE00C91783 /* iPalmGraffitiDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPalmGraffitiDemo_Prefix.pch; sourceTree = "<group>"; };
 		5390622813F29EE600BF0469 /* GraffitiRecognizers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GraffitiRecognizers.xcodeproj; path = ../../lib/GraffitiRecognizers/GraffitiRecognizers.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5390624D13F2A01500BF0469 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/gcc/arm-apple-darwin10/4.0.1/libstdc++.dylib"; sourceTree = SDKROOT; };
+		5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GraffitiUI.xcodeproj; path = ../../lib/GraffitiUI/GraffitiUI.xcodeproj; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* iPalmGraffitiDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iPalmGraffitiDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				539062A613F2A2AF00BF0469 /* libGraffitiUI.a in Frameworks */,
 				5390624213F29FA000BF0469 /* libGraffitiRecognizers.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -93,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				5390622813F29EE600BF0469 /* GraffitiRecognizers.xcodeproj */,
+				5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -140,6 +173,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5390629E13F2A2A700BF0469 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				539062A313F2A2A700BF0469 /* libGraffitiUI.a */,
+				539062A513F2A2A700BF0469 /* GraffitiUI-Resources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +197,8 @@
 			);
 			dependencies = (
 				5390624413F29FA900BF0469 /* PBXTargetDependency */,
+				539062A913F2A2BB00BF0469 /* PBXTargetDependency */,
+				539062AB13F2A2BB00BF0469 /* PBXTargetDependency */,
 			);
 			name = iPalmGraffitiDemo;
 			productName = iPalmGraffitiDemo;
@@ -183,6 +227,10 @@
 					ProductGroup = 5390622913F29EE600BF0469 /* Products */;
 					ProjectRef = 5390622813F29EE600BF0469 /* GraffitiRecognizers.xcodeproj */;
 				},
+				{
+					ProductGroup = 5390629E13F2A2A700BF0469 /* Products */;
+					ProjectRef = 5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -199,6 +247,20 @@
 			remoteRef = 5390622C13F29EE600BF0469 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		539062A313F2A2A700BF0469 /* libGraffitiUI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGraffitiUI.a;
+			remoteRef = 539062A213F2A2A700BF0469 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		539062A513F2A2A700BF0469 /* GraffitiUI-Resources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "GraffitiUI-Resources.bundle";
+			remoteRef = 539062A413F2A2A700BF0469 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -206,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				539062A713F2A2B200BF0469 /* GraffitiUI-Resources.bundle in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* iPalmGraffitiDemoViewController.xib in Resources */,
 			);
@@ -231,6 +294,16 @@
 			isa = PBXTargetDependency;
 			name = GraffitiRecognizers;
 			targetProxy = 5390624313F29FA900BF0469 /* PBXContainerItemProxy */;
+		};
+		539062A913F2A2BB00BF0469 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GraffitiUI;
+			targetProxy = 539062A813F2A2BB00BF0469 /* PBXContainerItemProxy */;
+		};
+		539062AB13F2A2BB00BF0469 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "GraffitiUI-Resources";
+			targetProxy = 539062AA13F2A2BB00BF0469 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -40,28 +40,28 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libGraffitiUI.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = GraffitiUI;
 		};
 		539062A413F2A2A700BF0469 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 5390628513F2A25000BF0469 /* GraffitiUI-Resources.bundle */;
+			remoteGlobalIDString = 5390628513F2A25000BF0469;
 			remoteInfo = "GraffitiUI-Resources";
 		};
 		539062A813F2A2BB00BF0469 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* GraffitiUI */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = GraffitiUI;
 		};
 		539062AA13F2A2BB00BF0469 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5390629D13F2A2A700BF0469 /* GraffitiUI.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 5390628413F2A25000BF0469 /* GraffitiUI-Resources */;
+			remoteGlobalIDString = 5390628413F2A25000BF0469;
 			remoteInfo = "GraffitiUI-Resources";
 		};
 /* End PBXContainerItemProxy section */

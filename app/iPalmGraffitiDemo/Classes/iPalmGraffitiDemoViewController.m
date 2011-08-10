@@ -1,52 +1,51 @@
-//
-//  iPalmGraffitiDemoViewController.m
-//  iPalmGraffitiDemo
-//
-//  Created by Oleksandr Dodatko on 8/10/11.
-//  Copyright 2011 EPAM systems. All rights reserved.
-//
-
 #import "iPalmGraffitiDemoViewController.h"
 
 @implementation iPalmGraffitiDemoViewController
 
 
+#pragma mark -
+#pragma mark KeyboardHooks
+-(void)viewDidAppear:( BOOL )animated_
+{
+   [ [ NSNotificationCenter defaultCenter ] addObserver: self 
+                                               selector: @selector( modifyKeyboard: )
+                                                   name: UIKeyboardWillShowNotification
+                                                 object: nil ];
 
-/*
-// The designated initializer. Override to perform setup that is required before the view is loaded.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+   [ super viewDidAppear: animated_ ];
 }
-*/
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
+-(void)viewWillDisappear:( BOOL )animated_
+{
+   [ [ NSNotificationCenter defaultCenter ] removeObserver: self 
+                                                      name: UIKeyboardWillShowNotification 
+                                                    object: nil];
 }
-*/
 
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
+#define GraffitiKeyboardView UIView
+-(void)modifyKeyboard:( NSNotification* )notification_ 
+{  
+   //!! TODO : check this hook properly
+
+   for (UIWindow *keyboardWindow in [ [ UIApplication sharedApplication ] windows ] )
+   {
+      for ( UIView *keyboard in [ keyboardWindow subviews ] )
+      {
+         if ( [ [ keyboard description ] hasPrefix: @"<UIKeyboard" ] == YES )
+         {
+            CGRect keyboard_frame_ = CGRectMake(0, 0, keyboard.frame.size.width, keyboard.frame.size.height);
+            
+            GraffitiKeyboardView *customKeyboard = [ [ GraffitiKeyboardView alloc ] initWithFrame: keyboard_frame_ ];
+            [ keyboard addSubview: customKeyboard ];
+            [ customKeyboard release ];
+         }
+      }
+   }
 }
-*/
 
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning 
+{
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
 	

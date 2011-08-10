@@ -114,6 +114,7 @@
 -(void)touchesEnded:( NSSet* )touches_
           withEvent:( UIEvent* )event_
 {
+   NSLog( @"[BEGIN] : GRGraffitiGestureRecognizer->touchesEnded:withEvent:" );
    GRImageRecognizer* image_recognizer_ = [ GRImageRecognizersFactory alphabetById: self.languageId ];
 
 
@@ -125,8 +126,10 @@
    
    if ( 0 == points_count_ )
    {
-      NSLog( @"GRGraffitiGestureRecognizer->touchesEnded:withEvent: -- no points collected so far" );
       self.state = UIGestureRecognizerStateFailed;
+
+      NSLog( @">>> GRGraffitiGestureRecognizer->touchesEnded:withEvent: -- no points collected so far" );      
+      NSLog( @"[END] : GRGraffitiGestureRecognizer->touchesEnded:withEvent:" );
       return;
    }
    
@@ -143,6 +146,8 @@
    {
       self.state = UIGestureRecognizerStateFailed;
    }
+   
+   NSLog( @"[END] : GRGraffitiGestureRecognizer->touchesEnded:withEvent:" );
 }
 
 -(void)touchesCancelled:( NSSet* )touches_

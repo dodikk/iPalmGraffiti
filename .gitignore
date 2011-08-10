@@ -1,0 +1,12 @@
+build
+.git
+.svn
+*.pbxuser
+*.mode1v3
+xcuserdata
+*.xcworkspace
+.DS_Store
+deployment
+DerivedData
+
+

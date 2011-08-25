@@ -10,15 +10,27 @@
 		5357C21813F27B4400E16537 /* GRGraffitiGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5357C21613F27B4400E16537 /* GRGraffitiGestureRecognizer.h */; };
 		5357C21B13F27B5800E16537 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5357C21A13F27B5800E16537 /* UIKit.framework */; };
 		5357C27713F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5357C27613F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm */; };
-		5357C28613F280A100E16537 /* RGGraffitiRecognizerState.h in Headers */ = {isa = PBXBuildFile; fileRef = 5357C28413F280A100E16537 /* RGGraffitiRecognizerState.h */; };
+		5357C28613F280A100E16537 /* GRGraffitiRecognizerState.h in Headers */ = {isa = PBXBuildFile; fileRef = 5357C28413F280A100E16537 /* GRGraffitiRecognizerState.h */; };
 		5357C28913F2812100E16537 /* GRTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5357C28813F2812100E16537 /* GRTypes.h */; };
 		5390617D13F28D5100BF0469 /* GRImageRecognizersFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390617B13F28D5100BF0469 /* GRImageRecognizersFactory.h */; };
 		5390617E13F28D5100BF0469 /* GRImageRecognizersFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5390617C13F28D5100BF0469 /* GRImageRecognizersFactory.m */; };
 		5390618213F28D9600BF0469 /* GRImageRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390618013F28D9600BF0469 /* GRImageRecognizer.h */; };
-		5390618313F28D9600BF0469 /* GRImageRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5390618113F28D9600BF0469 /* GRImageRecognizer.m */; };
 		5390619813F28EDD00BF0469 /* GRGraffitiAlphabets.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390619613F28EDD00BF0469 /* GRGraffitiAlphabets.h */; };
 		5390620313F2981700BF0469 /* GRPointsDumper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390620113F2981700BF0469 /* GRPointsDumper.h */; };
 		5390620413F2981700BF0469 /* GRPointsDumper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5390620213F2981700BF0469 /* GRPointsDumper.m */; };
+		53D3FACA14065AA700B83D24 /* GRRecognitionMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D3FAC914065AA700B83D24 /* GRRecognitionMethods.h */; };
+		53D3FACE14065C8200B83D24 /* GRMseRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D3FACC14065C8200B83D24 /* GRMseRecognizer.h */; };
+		53D3FACF14065C8200B83D24 /* GRMseRecognizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53D3FACD14065C8200B83D24 /* GRMseRecognizer.mm */; };
+		53D3FB191406611B00B83D24 /* GRMseSample.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D3FB171406611B00B83D24 /* GRMseSample.h */; };
+		53D3FB1A1406611B00B83D24 /* GRMseSample.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53D3FB181406611B00B83D24 /* GRMseSample.mm */; };
+		53D3FB221406624A00B83D24 /* GRStrokeConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D3FB211406624A00B83D24 /* GRStrokeConstraints.h */; };
+		53D3FB7414067B2C00B83D24 /* GRLogUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D3FB7214067B2C00B83D24 /* GRLogUtils.h */; };
+		53D3FB7514067B2C00B83D24 /* GRLogUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D3FB7314067B2C00B83D24 /* GRLogUtils.m */; };
+		53D3FB9114067F9000B83D24 /* GRBundleManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D3FB8F14067F9000B83D24 /* GRBundleManager.h */; };
+		53D3FB9214067F9000B83D24 /* GRBundleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D3FB9014067F9000B83D24 /* GRBundleManager.m */; };
+		53D3FBB21406830300B83D24 /* GRMseNormalizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D3FBB01406830300B83D24 /* GRMseNormalizer.h */; };
+		53D3FBB31406830300B83D24 /* GRMseNormalizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53D3FBB11406830300B83D24 /* GRMseNormalizer.mm */; };
+		53D3FBB51406899C00B83D24 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53D3FBB41406899C00B83D24 /* Accelerate.framework */; };
 		AA747D9F0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -27,15 +39,27 @@
 		5357C21613F27B4400E16537 /* GRGraffitiGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRGraffitiGestureRecognizer.h; sourceTree = "<group>"; };
 		5357C21A13F27B5800E16537 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5357C27613F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GRGraffitiGestureRecognizer.mm; sourceTree = "<group>"; };
-		5357C28413F280A100E16537 /* RGGraffitiRecognizerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGGraffitiRecognizerState.h; sourceTree = "<group>"; };
+		5357C28413F280A100E16537 /* GRGraffitiRecognizerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRGraffitiRecognizerState.h; sourceTree = "<group>"; };
 		5357C28813F2812100E16537 /* GRTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTypes.h; sourceTree = "<group>"; };
 		5390617B13F28D5100BF0469 /* GRImageRecognizersFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRImageRecognizersFactory.h; sourceTree = "<group>"; };
 		5390617C13F28D5100BF0469 /* GRImageRecognizersFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRImageRecognizersFactory.m; sourceTree = "<group>"; };
 		5390618013F28D9600BF0469 /* GRImageRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRImageRecognizer.h; sourceTree = "<group>"; };
-		5390618113F28D9600BF0469 /* GRImageRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRImageRecognizer.m; sourceTree = "<group>"; };
 		5390619613F28EDD00BF0469 /* GRGraffitiAlphabets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRGraffitiAlphabets.h; sourceTree = "<group>"; };
 		5390620113F2981700BF0469 /* GRPointsDumper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRPointsDumper.h; sourceTree = "<group>"; };
 		5390620213F2981700BF0469 /* GRPointsDumper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRPointsDumper.m; sourceTree = "<group>"; };
+		53D3FAC914065AA700B83D24 /* GRRecognitionMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRRecognitionMethods.h; sourceTree = "<group>"; };
+		53D3FACC14065C8200B83D24 /* GRMseRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMseRecognizer.h; sourceTree = "<group>"; };
+		53D3FACD14065C8200B83D24 /* GRMseRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GRMseRecognizer.mm; sourceTree = "<group>"; };
+		53D3FB171406611B00B83D24 /* GRMseSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMseSample.h; sourceTree = "<group>"; };
+		53D3FB181406611B00B83D24 /* GRMseSample.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GRMseSample.mm; sourceTree = "<group>"; };
+		53D3FB211406624A00B83D24 /* GRStrokeConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRStrokeConstraints.h; sourceTree = "<group>"; };
+		53D3FB7214067B2C00B83D24 /* GRLogUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRLogUtils.h; sourceTree = "<group>"; };
+		53D3FB7314067B2C00B83D24 /* GRLogUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRLogUtils.m; sourceTree = "<group>"; };
+		53D3FB8F14067F9000B83D24 /* GRBundleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRBundleManager.h; sourceTree = "<group>"; };
+		53D3FB9014067F9000B83D24 /* GRBundleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRBundleManager.m; sourceTree = "<group>"; };
+		53D3FBB01406830300B83D24 /* GRMseNormalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMseNormalizer.h; sourceTree = "<group>"; };
+		53D3FBB11406830300B83D24 /* GRMseNormalizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GRMseNormalizer.mm; sourceTree = "<group>"; };
+		53D3FBB41406899C00B83D24 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		AA747D9E0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraffitiRecognizers_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libGraffitiRecognizers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGraffitiRecognizers.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +72,7 @@
 			files = (
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 				5357C21B13F27B5800E16537 /* UIKit.framework in Frameworks */,
+				53D3FBB51406899C00B83D24 /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +104,7 @@
 			children = (
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 				5357C21A13F27B5800E16537 /* UIKit.framework */,
+				53D3FBB41406899C00B83D24 /* Accelerate.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -97,6 +123,7 @@
 				5357C21613F27B4400E16537 /* GRGraffitiGestureRecognizer.h */,
 				5357C28813F2812100E16537 /* GRTypes.h */,
 				5390619613F28EDD00BF0469 /* GRGraffitiAlphabets.h */,
+				53D3FAC914065AA700B83D24 /* GRRecognitionMethods.h */,
 			);
 			path = GraffitiRecognizers;
 			sourceTree = "<group>";
@@ -106,11 +133,11 @@
 			children = (
 				539061ED13F292EF00BF0469 /* language-english */,
 				539061EE13F292EF00BF0469 /* numbers-arabic */,
+				53D3FA651406590C00B83D24 /* recognizers */,
 				5390620013F2966F00BF0469 /* utils */,
 				5357C27613F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm */,
-				5357C28413F280A100E16537 /* RGGraffitiRecognizerState.h */,
+				5357C28413F280A100E16537 /* GRGraffitiRecognizerState.h */,
 				5390618013F28D9600BF0469 /* GRImageRecognizer.h */,
-				5390618113F28D9600BF0469 /* GRImageRecognizer.m */,
 				5390617B13F28D5100BF0469 /* GRImageRecognizersFactory.h */,
 				5390617C13F28D5100BF0469 /* GRImageRecognizersFactory.m */,
 			);
@@ -136,8 +163,34 @@
 			children = (
 				5390620113F2981700BF0469 /* GRPointsDumper.h */,
 				5390620213F2981700BF0469 /* GRPointsDumper.m */,
+				53D3FB7214067B2C00B83D24 /* GRLogUtils.h */,
+				53D3FB7314067B2C00B83D24 /* GRLogUtils.m */,
+				53D3FB8F14067F9000B83D24 /* GRBundleManager.h */,
+				53D3FB9014067F9000B83D24 /* GRBundleManager.m */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		53D3FA651406590C00B83D24 /* recognizers */ = {
+			isa = PBXGroup;
+			children = (
+				53D3FACB14065C6A00B83D24 /* MSERecognizer */,
+			);
+			path = recognizers;
+			sourceTree = "<group>";
+		};
+		53D3FACB14065C6A00B83D24 /* MSERecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				53D3FACC14065C8200B83D24 /* GRMseRecognizer.h */,
+				53D3FACD14065C8200B83D24 /* GRMseRecognizer.mm */,
+				53D3FB171406611B00B83D24 /* GRMseSample.h */,
+				53D3FB181406611B00B83D24 /* GRMseSample.mm */,
+				53D3FB211406624A00B83D24 /* GRStrokeConstraints.h */,
+				53D3FBB01406830300B83D24 /* GRMseNormalizer.h */,
+				53D3FBB11406830300B83D24 /* GRMseNormalizer.mm */,
+			);
+			path = MSERecognizer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,12 +202,19 @@
 			files = (
 				AA747D9F0F9514B9006C5449 /* GraffitiRecognizers_Prefix.pch in Headers */,
 				5357C21813F27B4400E16537 /* GRGraffitiGestureRecognizer.h in Headers */,
-				5357C28613F280A100E16537 /* RGGraffitiRecognizerState.h in Headers */,
+				5357C28613F280A100E16537 /* GRGraffitiRecognizerState.h in Headers */,
 				5357C28913F2812100E16537 /* GRTypes.h in Headers */,
 				5390617D13F28D5100BF0469 /* GRImageRecognizersFactory.h in Headers */,
 				5390618213F28D9600BF0469 /* GRImageRecognizer.h in Headers */,
 				5390619813F28EDD00BF0469 /* GRGraffitiAlphabets.h in Headers */,
 				5390620313F2981700BF0469 /* GRPointsDumper.h in Headers */,
+				53D3FACA14065AA700B83D24 /* GRRecognitionMethods.h in Headers */,
+				53D3FACE14065C8200B83D24 /* GRMseRecognizer.h in Headers */,
+				53D3FB191406611B00B83D24 /* GRMseSample.h in Headers */,
+				53D3FB221406624A00B83D24 /* GRStrokeConstraints.h in Headers */,
+				53D3FB7414067B2C00B83D24 /* GRLogUtils.h in Headers */,
+				53D3FB9114067F9000B83D24 /* GRBundleManager.h in Headers */,
+				53D3FBB21406830300B83D24 /* GRMseNormalizer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +270,12 @@
 			files = (
 				5357C27713F27E0B00E16537 /* GRGraffitiGestureRecognizer.mm in Sources */,
 				5390617E13F28D5100BF0469 /* GRImageRecognizersFactory.m in Sources */,
-				5390618313F28D9600BF0469 /* GRImageRecognizer.m in Sources */,
 				5390620413F2981700BF0469 /* GRPointsDumper.m in Sources */,
+				53D3FACF14065C8200B83D24 /* GRMseRecognizer.mm in Sources */,
+				53D3FB1A1406611B00B83D24 /* GRMseSample.mm in Sources */,
+				53D3FB7514067B2C00B83D24 /* GRLogUtils.m in Sources */,
+				53D3FB9214067F9000B83D24 /* GRBundleManager.m in Sources */,
+				53D3FBB31406830300B83D24 /* GRMseNormalizer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,14 +1,16 @@
 #import <Foundation/Foundation.h>
 #include <GraffitiRecognizers/GRGraffitiAlphabets.h>
+#include <GraffitiRecognizers/GRRecognitionMethods.h>
 
-@class GRImageRecognizer;
+@protocol GRImageRecognizer;
 
 
 @interface GRImageRecognizersFactory : NSObject 
 
-+(GRImageRecognizer*)alphabetById:( GRGraffitiAlphabets )alphabet_id_;
++(id<GRImageRecognizer>)recognizerWithAlphabetId:( GRGraffitiAlphabets )alphabet_id_
+                                        methodId:( GRRecognitionMethods )method_id_;
 
-+(GRImageRecognizer*)englishAlphabet;
-+(GRImageRecognizer*)arabicNumbersAlphabet;
++(id<GRImageRecognizer>)englishAlphabet;
++(id<GRImageRecognizer>)arabicNumbersAlphabet;
 
 @end

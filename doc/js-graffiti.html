@@ -1,0 +1,688 @@
+<html>
+<head>
+<title>Javascript Grafitti</title>
+<!--
+   Pick your favorite style sheet from among the eight offerings:
+   Chocolate, Midnight, Modernist, Oldstyle, Steely, Swiss, Traditional,
+   and Ultramarine.
+-->
+<link rel="stylesheet" href="http://www.w3.org/StyleSheets/Core/Steely" type="text/css" />
+
+<style type="text/css">
+canvas { 
+   border: 1px solid black;
+   background-color: #dddddd ;
+   }
+</style>
+
+<script language="javascript1.2">
+// Javascript Graffiti
+// version 0.1
+// 2005-09-26
+// Copyright (c) 2005, Julien Couvreur
+// Released under the GPL license
+// http://www.gnu.org/copyleft/gpl.html
+
+//todo:
+// - add function for tangents
+// - add heuristics based on tangents
+//==================================================================================================================================
+//confirm('got here 1 0')
+// override regular alert to print characters best matched at bottom
+var alert = function(text) {
+  var span = document.getElementById("alert");
+  text = text.replace(/\n/g, " -- ");
+
+      switch (text ) {            /* switch based on current letter */
+      case "backspace": 
+         ii=span.innerHTML.length;
+         span.innerHTML= span.innerHTML.substring(0,ii-1);
+         break; 
+      default:
+         span.innerHTML = span.innerHTML + text ;
+         break; 
+      }
+}
+//confirm('got here 1 00')
+</script>
+<script language="javascript1.2">
+//==================================================================================================================================
+function d(A,B){ // draw polyline
+   var ctx = getCtx();
+   var xscale=200;
+   var yscale=400;
+   var xoffset=100;
+   var yoffset=100;
+   ctx.strokeStyle = "rgba(200, 0, 0, 0.5)";
+   ctx.lineWidth = 4.0;
+   ctx.beginPath();
+   ctx.moveTo(A[0]*xscale+xoffset,B[0]*yscale+yoffset);
+   for(i=1; i<A.length;i=i+1){
+      ctx.lineTo(A[i]*xscale+xoffset,B[i]*yscale+yoffset);
+   }
+   //ctx.closePath();
+   ctx.stroke();
+
+   // note that polylines of no cumulative length (ie. POINTS) do not display, so draw circle at beginning in case
+   radius=ctx.lineWidth*3; // draw circles for dots with radius set to N(line_thickness)
+   var opacity=0.8;
+   for(i=0; i<A.length;i=i+1){
+      ctx.fillStyle = "rgba(0, 200, 0, " + opacity + ")";
+      ctx.beginPath();
+         ctx.arc(A[i]*xscale+xoffset,B[i]*yscale+yoffset,radius,0,Math.PI*2,true);
+      ctx.fill();
+	      opacity=opacity-0.04;
+	   }
+	}
+	//==================================================================================================================================
+	</script>
+	<script language="javascript1.2">
+	//==================================================================================================================================
+	</script>
+	<script language="javascript1.2">
+	//confirm('got here 2 0')
+	//==================================================================================================================================
+	var Constraint = new function() {
+	  this.StartTopLeft = 1; // starting in the top left corner is allowed
+	  this.StartTopRight = 1 << 1;
+	  this.StartBottomLeft = 1 << 2;
+	  this.StartBottomRight = 1 << 3;
+	  this.StartAny = this.StartTopLeft | this.StartTopRight | this.StartBottomLeft | this.StartBottomRight;
+
+	  this.EndTopLeft = 1 << 4;
+	  this.EndTopRight = 1 << 5;
+	  this.EndBottomLeft = 1 << 6;
+	  this.EndBottomRight = 1 << 7;
+	  this.EndAny = this.EndTopLeft | this.EndTopRight | this.EndBottomLeft | this.EndBottomRight;
+
+	  this.Any = this.StartAny | this.EndAny;
+	}
+	//==================================================================================================================================
+	//confirm('got here 2 00')
+	</script>
+	<script language="javascript1.2">
+	//confirm('got here 3 0')
+	//==================================================================================================================================
+	function Path() 
+	{
+	  this.xs = new Array();
+	  this.ys = new Array();
+	  var ls = new Array();
+	  var normalized = false;
+
+	  //==============================================================================
+	  this.init = function(inX, inY) 
+	  {
+	    for (var i = 0; i < inX.length; i++) 
+	    {
+	      this.add(inX[i], inY[i]);
+	    }
+	    this.normalize();
+	  }
+	  //==============================================================================
+	  function distancePoints(x0, y0, x1, y1) 
+	  {
+	    return Math.sqrt(Math.pow(x0 - x1, 2) + Math.pow(y0 - y1, 2));
+	  }
+	  //==============================================================================
+	  this.distancePath = function(path) 
+	  {
+	    var ret = 0;
+	    var len = this.xs.length;
+
+//        alert( "distancePath -- size : " + this.xs.length );
+
+	    if (path.xs.length != len) 
+	    {
+//	      alert( "distancePath -- size mismatch" );
+	      //alert( len + " expected " );
+	      //alert( path.xs.length + "received" );
+	      // throw
+	      return;
+	    }
+      
+        for (var i = 0; i < len; i++) 
+        {
+	      ret += distancePoints(this.xs[i], this.ys[i], path.xs[i], path.ys[i]);
+	    }
+	    return ret;
+	  }
+	  //==============================================================================
+	  this.closest = function(paths) 
+	  {
+	    var closestIndex = 0;
+	    var minDist = this.distancePath(paths[0]);
+
+	    for (var i = 1; i < paths.length; i++) 
+	    {
+	      var dist = this.distancePath(paths[i]);
+	      if (dist < minDist) 
+	      {
+    		minDist = dist;
+	       	closestIndex = i;
+	      }
+	    }
+	    return closestIndex;
+	  }
+	  //==============================================================================
+	  this.add = function(x, y) 
+	  {
+	    var i = ls.length;
+	    this.xs.push(x);
+	    this.ys.push(y);
+
+	    if (i > 0) 
+	    {
+	      var l = distancePoints(this.xs[i-1], this.ys[i-1], this.xs[i], this.ys[i]);
+	      ls.push(ls[i-1] + l);
+	    }
+	    else 
+	    {
+	      ls.push(0);
+	    }
+	  }
+	  //==============================================================================
+	  this.alert = function() {
+	    var out = "";
+	    var n = this.xs.length;
+
+	    for (var i = 0; i < n; i++) {
+	      out += this.xs[i] + ", " + this.ys[i] + "\n";
+	    }
+	    alert(out); 
+	    alert(this.getLength());   
+	  }
+	  //==============================================================================
+	  // todo: move this method onto Array.prototype
+	  function minMax(array) {
+	    if (array.lengh == 0) return;
+
+	    var min = array[0];
+	    var max = array[0];
+
+	    for (var i = 0; i < array.length; i++) {
+	      if (array[i] < min) {
+		min = array[i];
+	      } else if (array[i] > max) {
+		max = array[i];
+	      }
+	    }
+
+	    return {min: min, max: max};
+	  }
+	  //==============================================================================
+	  this.getLength = function() {
+	    return ls[ls.length - 1];
+	  }
+	  //==============================================================================
+	  function interpolate(array, index, ratio) {
+	    var v0 = array[index];
+	    var v1 = array[index+1];
+	    
+	    return v0 + (v1 - v0) * ratio;
+	  }
+	  //==============================================================================
+	  this.normalize = function() 
+	  {
+	    if (normalized) 
+	    {
+	      return;
+	    } 
+	    normalized = true;
+
+	    var normLen = 10;
+	    var normXs = new Array();
+	    var normYs = new Array();
+	    var len = this.getLength();
+
+	    var mx = minMax(this.xs);
+	    var my = minMax(this.ys);
+	    var proportion = Math.abs((mx.max - mx.min) / (my.max - my.min));
+	      
+	    var curIndex = 0;    
+
+	    for (var i = 0; i <= normLen; i++) 
+	    {
+	      var targetLen = i * len / normLen;
+	      
+	      while (ls[curIndex+1] < targetLen) 
+	      {
+    		curIndex++;
+	      }
+	      var ratio = (targetLen - ls[curIndex]) / (ls[curIndex+1] - ls[curIndex]);
+	      var x = interpolate(this.xs, curIndex, ratio);
+	      var y = interpolate(this.ys, curIndex, ratio);
+	      
+	      if (proportion < 0.2) 
+	      {
+    		normXs.push(0);
+	       	normYs.push((y - my.min) / (my.max - my.min));
+	      } 
+	      else if (proportion > 5) 
+	      {
+    		normXs.push((x - mx.min) / (mx.max - mx.min));
+	       	normYs.push(0);
+	      }
+	      else 
+	      {
+    		normXs.push((x - mx.min) / (mx.max - mx.min));
+    		normYs.push((y - my.min) / (my.max - my.min));
+	      }
+	    }
+
+	    this.xs = normXs;
+	    this.ys = normYs;
+	    
+	    normSize = normXs.length;
+	  }
+	  //==============================================================================
+	  var posValue = function(x, y) {
+	    if (x < 0.5 && y < 0.5) { return Constraint.StartTopLeft; }
+	    if (x > 0.5 && y < 0.5) { return Constraint.StartTopRight; }
+	    if (x < 0.5 && y > 0.5) { return Constraint.StartBottomLeft; }
+	    if (x > 0.5 && y > 0.5) { return Constraint.StartBottomRight; }
+	  }
+	  //==============================================================================
+	  this.matchConstraint = function(c) {
+	    if (!c) { return true; }
+	    if (!normalized) { return false; }    
+
+	    var startValue = posValue(this.xs[0], this.ys[0]);
+	    var endValue = posValue(this.xs[this.xs.length - 1], this.ys[this.ys.length - 1]) << 4;
+
+	    //alert("startValue: " + startValue + " endValue: " + endValue + ", constraint: " + c);
+
+	    return ((startValue | endValue) & (~c)) == 0;
+	  }
+	  //==============================================================================
+	}
+	//==================================================================================================================================
+	//confirm('got here 3 00')
+	</script>
+	<script language="javascript1.2">
+	//confirm('got here 7 0')
+	//==================================================================================================================================
+	function DigitsReference() {
+	  var ref = new Array();
+
+	  //==============================================================================
+	  var create = function(s, xs, ys, c) {
+	    var p = new Path();
+	    p.init(xs, ys)
+	    ref.push({symbol: s, path: p, constraint: c});
+	  }
+	  //==============================================================================
+
+	  create("A", [0, 5, 10], [10, 0, 10], Constraint.StartBottomLeft | Constraint.EndBottomRight);
+	  create("B", [0, 0, 0, 3, 3, 0], [0, 10, 7, 7, 10, 10], Constraint.StartTopLeft | Constraint.EndBottomLeft);
+	  create("C", [10, 0, 0, 10], [0, 0, 10, 10], Constraint.StartTopRight | Constraint.EndBottomRight);
+	  create("D", [0, 0, 10, 10, 0], [10, 0, 0, 10, 10], Constraint.StartBottomLeft | Constraint.EndBottomLeft);
+	  create("E", [10, 0, 0, 3, 0, 0, 10], [0, 0, 5, 5, 5, 10, 10], Constraint.StartTopRight | Constraint.EndBottomRight);
+	  create("F", [10, 0, 0], [0, 0, 10], Constraint.StartTopRight | Constraint.EndBottomLeft);
+	  create("G", [10, 0, 0, 10, 10, 5], [0, 0, 10, 10, 5, 5], Constraint.StartTopRight | Constraint.EndAny);
+	  create("H", [0, 0, 0, 3, 3], [0, 10, 7, 7, 10], Constraint.StartTopLeft | Constraint.EndBottomRight);
+	  create("I", [5, 5], [0, 10], Constraint.StartTopLeft | Constraint.EndBottomLeft);
+	  create("J", [10, 10, 0], [0, 10, 10], Constraint.StartTopRight | Constraint.EndBottomLeft | Constraint.EndTopLeft);
+	  create("K", [10, 0, 0, 10], [0, 10, 0, 10], Constraint.StartTopRight | Constraint.EndBottomRight);
+	  create("L", [0, 0, 10], [0, 10, 10], Constraint.StartTopLeft | Constraint.EndBottomRight);
+	  create("M", [0, 0, 5, 10, 10], [10, 0, 5, 0, 10], Constraint.StartBottomLeft | Constraint.EndBottomRight);
+	  create("N", [0, 0, 10, 10], [10, 0, 10, 0], Constraint.StartBottomLeft | Constraint.EndTopRight);
+	  create("O", [5, 0, 0, 10, 10, 5], [0, 0, 10, 10, 0, 0], Constraint.StartTopLeft | Constraint.StartTopRight | Constraint.EndTopLeft | Constraint.EndTopRight);
+	  create("P", [0, 0, 0, 10, 10, 0], [0, 10, 0, 0, 5, 5], Constraint.StartBottomLeft | Constraint.EndAny);
+	  create("Q", [4, 0, 0, 4, 4], [0, 0, 4, 4, 7]);
+	  create("R", [0, 0, 0, 10, 10, 0, 10], [0, 10, 0, 0, 5, 5, 10], Constraint.BottomLeft | Constraint.EndAny);
+	  create("S", [10, 0, 0, 10, 10, 0], [0, 2, 4, 6, 8, 10], Constraint.StartTopRight | Constraint.EndBottomLeft);
+	  create("T", [0, 8, 8], [0, 0, 10], Constraint.StartTopLeft | Constraint.EndBottomRight);
+	  create("U", [0, 5, 10], [0, 10, 0], Constraint.StartTopLeft | Constraint.EndTopRight);
+	  create("V", [10, 5, 0], [0, 10, 0], Constraint.StartTopLeft | Constraint.EndTopRight);
+	  create("V2", [0, 3, 6, 10], [0, 10, 0, 0], Constraint.StartTopLeft | Constraint.EndTopRight);
+	  create("W", [0, 0, 5, 10, 10], [0, 10, 5, 10, 0], Constraint.StartTopLeft | Constraint.EndTopRight);
+	  create("X", [0, 10, 0, 10], [0, 10, 10, 0], Constraint.StartTopLeft | Constraint.EndTopRight);
+	  create("Y", [0, 0, 5, 5, 5, 5, 5, 10], [0, 5, 5, 0, 5, 10, 5, 5], Constraint.StartTopLeft | Constraint.EndAny);
+	  create("Z", [0, 10, 0, 10], [0, 0, 10, 10], Constraint.StartTopLeft | Constraint.EndBottomRight);
+	  create("blank", [0, 3,5, 10 ], [5, 5,5,5], Constraint.StartTopLeft | Constraint.EndTopRight);
+	  create("backspace", [10,5,3,0 ], [5, 5,5,5], Constraint.StartTopRight | Constraint.EndTopLeft);
+	  create("U2", [0, 0, 10, 10], [0, 10, 10, 0], Constraint.StartTopLeft | Constraint.EndTopRight);
+	  create("P2", [0, 0, 10, 10, 0], [10, 0, 0, 5, 5], Constraint.StartBottomLeft | Constraint.EndAny);
+	  create("R2", [0, 0, 10, 10, 0, 10], [10, 0, 0, 5, 5, 10], Constraint.StartBottomLeft | Constraint.EndBottomRight);
+	  create("XBAD", [0, 10, 10, 0], [0, 10, 0, 10], Constraint.StartTopLeft | Constraint.EndTopRight);
+
+	  //==============================================================================
+	  this.drawStrokes = function(lettername) {
+	    var minRefItem;    
+	    for (var refItemName in ref) {   
+		 refItem= ref[refItemName];
+		 if( lettername == refItem.symbol ){
+		    //alert("symbol: " + refItem.symbol + ", refItem.path: " + refItem.path.xs + refItem.path.ys);
+		   d(refItem.path.xs,refItem.path.ys);
+		 }
+	    }
+	  }
+	  //==============================================================================
+	  this.findBestMatch = function(path) 
+	  {
+	    path.normalize();
+
+	    var minDist = 100;
+	    var minRefItem;   
+	    
+	    //alert("Checking the path with size : " + path.xs.length); 
+	    //path.alert();
+
+	//JSU: MOD Sat Mar  1 21:08:13 EST 2008
+	//__________________________________________________________
+	//    for each(var refItem in ref) {   // CURRENTLY NOT IMPLEMENTED EXCEPT IN FIREFOX: iterate over the values of and object, and not the keys 
+	//__________________________________________________________
+	    for (var refItemName in ref)
+	    {   
+		 refItem= ref[refItemName];
+	//__________________________________________________________
+
+	      // if constraints are not compatible, skip
+	      if (!path.matchConstraint(refItem.constraint)) 
+	      {
+	        continue;
+	      }
+
+	      var dist = path.distancePath(refItem.path);
+//	      alert("symbol: " + refItem.symbol + ", dist: " + dist);	      
+	      
+//	      alert("symbol path : );
+//	      refItem.alert();
+	      
+	      if (dist < minDist)
+	      {
+		      minDist = dist;
+		      minRefItem = refItem;
+	      }
+	    }
+
+	    return minRefItem;
+	  }
+	  //==============================================================================
+	}
+	//confirm('got here 7 00')
+	</script>
+	<script language="javascript1.2">
+	//confirm('got here 8 0')
+	//==================================================================================================================================
+	function getCtx() {
+	  var c = document.getElementById("canvas");
+	  var ctx = c.getContext("2d");
+	  return ctx;
+	}
+	//confirm('got here 8 00')
+	//==================================================================================================================================
+	</script>
+	<script language="javascript1.2">
+	//confirm('got here 9 0')
+	//==================================================================================================================================
+
+	var drawing = false;
+	var lastpos = {x:-1, y:-1};
+	var path;
+	var ref = new DigitsReference();
+
+	//==================================================================================================================================
+	function on_mousedown(e) {
+	  getCtx().clearRect(0, 0, 600, 600);
+	  drawing = true;
+
+	  lastpos = GetPos(e); //JSU WAS: lastpos = {x: e.clientX, y: e.clientY};
+
+	  path = new Path();
+	  path.add(lastpos.x, lastpos.y);
+	}
+	//==================================================================================================================================
+	function on_mousemove(e) {
+	  if (!drawing)
+	    return;
+
+	  var pos = GetPos(e); //JSU WAS: var pos = {x: e.clientX, y: e.clientY};
+
+	  path.add(pos.x, pos.y);
+	 
+	  var ctx = getCtx();
+	  ctx.strokeStyle = "rgba(200,0,0,0.5)";
+	  ctx.lineWidth = 4.0;
+	  ctx.beginPath();
+	  ctx.moveTo(lastpos.x, lastpos.y);
+	  ctx.lineTo(pos.x, pos.y);
+	  ctx.closePath();
+	  ctx.stroke();
+
+	  lastpos = pos;
+	}
+	//==================================================================================================================================
+	// More generic than var pos = {x: e.clientX, y: e.clientY};
+	// JSU Sat Mar  1 18:47:10 EST 2008
+	function GetPos(e) {
+		var posx = 0;
+		var posy = 0;
+		if (!e) var e = window.event;
+		if (e.pageX || e.pageY) 	{
+			posx = e.pageX;
+			posy = e.pageY;
+		}
+		else if (e.clientX || e.clientY) 	{
+			posx = e.clientX + document.body.scrollLeft
+				+ document.documentElement.scrollLeft;
+			posy = e.clientY + document.body.scrollTop
+				+ document.documentElement.scrollTop;
+		}
+		// posx and posy contain the mouse position relative to the document
+		// Do something with this information
+		var pos = {x: posx, y: posy};
+		return pos;
+	}
+	//confirm('got here 9 00')
+	</script>
+	<script language="javascript1.2">
+	//confirm('got here A 0')
+	//==================================================================================================================================
+	function on_mouseup(e) {
+	  drawing = false;
+
+	  var refItem = ref.findBestMatch(path);
+	  if (refItem ){
+
+      switch (refItem.symbol ) {            /* switch based on current letter */
+      case "P2": 
+	 alert("p");
+         break; 
+
+      case "R2": 
+	 alert("r");
+         break; 
+
+      case "U2": 
+	 alert("u");
+         break; 
+
+      case "V2": 
+	 alert("v");
+         break; 
+
+      case " ":  case "": case"blank": 
+	 alert("&nbsp;");
+         break; 
+
+      case "backspace": 
+
+      default:
+	 alert(refItem.symbol);
+         break; 
+      }
+
+	  }else{
+	     alert("?");
+	  }
+
+	 // alert(" " + (refItem ? refItem.symbol : "none"));
+	}
+	//confirm('got here A 00')
+	</script>
+	<script language="javascript1.2">
+	//confirm('got here B 0')
+	//==================================================================================================================================
+	function init() {
+	  var c = document.getElementById("canvas");
+	  var ctx = getCtx();
+	  c.addEventListener("mousedown", on_mousedown, false);
+	  c.addEventListener("mousemove", on_mousemove, false);
+	  c.addEventListener("mouseup", on_mouseup, false); 
+
+	}
+	//confirm('got here B 00')
+	//==================================================================================================================================
+	//confirm('got here all')
+	</script>
+	</head>
+
+	<body onload="init()">
+
+	<canvas 
+	   id="canvas"
+	      style="
+		     position:absolute;left:0;top:0;/
+		     border: solid;
+		     border-width: 8px;
+		     "
+	   width="600"
+	   height="600">
+	   This graffiti-style pen recognition demo requires a browser that supports the &lt;canvas&gt; element.
+	</canvas>
+
+	<a href="../../index.html"><img src="../../images/ju.gif" style="position:absolute;left:0;top:0" width="17" height="22" /></a>
+
+	<a alt="canvas examples" href="../canvas1.html">
+	   <img 
+	      src="Palm_Graffiti_gestures.png" 
+	      style="
+		     position:absolute;left:630;top:0;
+		     border: solid;
+		     /*Palm_Graffiti_gestures.png: PNG image data, 577 x 1216, 8-bit colormap, non-interlaced*/
+		     "
+	      width="289"
+	      height="608"
+	   />
+	</a>
+<form style=" position:absolute;left:925;top:0; border: solid; " >
+  <input type="button" value="alphabet" onclick="alert('got here a');" />
+  <select
+    name="my_pointlist"
+    size="36"
+    onclick="getCtx().clearRect(0, 0, 600, 600);ref.drawStrokes(this.options[this.selectedIndex].text);"
+  >
+    <option>A <option>B <option>C <option>D <option>E
+    <option>F <option>G <option>H <option>I <option>J
+    <option>K <option>L <option>M <option>N <option>O
+    <option>P <option>Q <option>R <option>S <option>T
+    <option>U <option>V <option>W <option>X <option>Y
+    <option>Z
+    <option>blank
+    <option>backspace
+    <option>P2
+    <option>R2
+    <option>U2
+    <option>V2
+  </select>
+
+ </form>
+	<span 
+	   id="alert"
+	   style="position:absolute;left:20;top:640;"
+	/>
+	   Best match:
+	</span>
+<div style="position:absolute;left:10;top:720;">
+<h1>Javascript Graffiti version 0.1, 2005-09-26</h1>
+<h2>Copyright (c) 2005, Julien Couvreur; Released under the GPL license</h2>
+<h2>version 0.2, 2008-03-01, John Urban</h2>
+<h2>version 0.3, 2010-07-08, John Urban</h2>
+
+
+<p>
+   This tantalizing script reads mouse motions and recognizes what
+   letters you drew in a way very reminiscent of my first Palm Pilot
+   (but it's definitely not exactly the same).  Draw a letter with the
+   mouse and see if the script guesses which letter your wrote.
+</p>
+
+<p>
+   If you have any history with Palm devices, you're probably familiar
+   with the popular "Graffiti" text input method. Graffiti is a
+   handwriting-recognition system that translates strokes made with
+   the Palm stylus into characters, effectively allowing you to type
+   via handwriting.
+</p>
+
+<p>
+   I made a few changes to Julien Couvreur's work so this would 
+   <ul>
+    <li>read the mouse position more accurately </li>
+    <li>use an absolutely positioned CANVAS so that the drawing in the CANVAS lined up reliably with the mouse movements</li>
+    <li>changed it so it would work in Opera and Safari instead of just Firefox browsers</li>
+    <li>I replaced a JavaScript 1.6 "for each ( .. in ..)" with equivalent code.</li>
+    <li>I added an option to display the patterns being best matched</li>
+    <li>and other tweeks like space and backspace.
+   </ul>
+</p>
+<p>
+   A better explanation of how this works and how the main algorithm
+   can be improved  can be found with the original and the references
+   it points to.
+<p>
+
+<p>
+   If anyone extends this to do the full character set let me
+   know. Another good thing to do would be to have it echo all the stroke
+   patterns at once as an alphabet so that basically, it generates it's
+   own stroke diagram.
+</p>
+
+<ul>
+   <li>Only alphameric characters are defined</li>
+   <li>My old PALM's table may not be appropriate. He may be using grafitti.2/Jot or something else as a basis for the stroke patterns.</li>
+   <li>Tested in firefox(1), opera.</li>
+</ul>
+
+<a href="http://blog.monstuff.com/archives/000263.html">Project homepage</a>.
+<a href="http://www.palm.com/us/products/input/Palm_Graffiti.pdf">Documentation for the Graffiti alphabet (pdf)</a> 
+
+<br/>
+
+<a href="http://home.comcast.net/~urbanjost" onmouseover="this.href='http://html5.validator.nu/?doc=' + document.URL;" target="_blank"
+ style="background-color:#ffaacc;border-style:solid;border-width:6;">VALIDATE</a>
+
+<a href="http://home.comcast.net/~urbanjost" onmouseover="this.href='http://validator.w3.org/checker/?uri=' + document.URL;" target="_blank"
+ style="background-color:#ffaacc;border-style:solid;border-width:6;">VALIDATE</a>
+<h2>FODDER:</h2>
+<h2>Algorithms for hardwriting recognition; machine learning; pattern recognition</h2>
+<ul>
+<li>Zinnia (handwriting recognition) and PHP integration</li>
+<li>Pattern recognition algorithms</li>
+<li>Can a perceptron be used to detect hand-written digits?</li>
+<li>How To: Pattern Recognition</li>
+<li>Starting semantic image recognition</li>
+<li>Simple object recognition </li>
+<li>iPhone Photo/Pattern Recognition</li>
+<li>You can use a genetic algorithm: <a href="http://www.foibg.com/ibs_isc/ibs-02/IBS-02-p03.pdf"> http://www.foibg.com/ibs_isc/ibs-02/IBS-02-p03.pdf</a></li>
+<li>You can use Greedy Point Match:<a href="http://www.cs.berkeley.edu/~fateman/msw/GreedyPointMatchWriteup.pdf" http://www.cs.berkeley.edu/~fateman/msw/GreedyPointMatchWriteup.pdf</a></li>
+<li>I would suggest reading this paper: On-Line and Off-Line Handwriting Recognition: A Comprehensive Survey</li>
+<li>"Boosting" was another easy, adaptive method for recognizing handwriting. check out adaboost(1), and its surrounding papers.</li>
+<li>OCR might be a good starting point.</li>
+<li>This one seems to win all the major competitions lately: <a href="http://wiki.github.com/alexgraves/RNNLIB"> http://wiki.github.com/alexgraves/RNNLIB</a></li>
+<li>Google has released an open source OCR engines -- Tesseract OCR, and It has a Python binding.</li>
+<li><a href="http://www.foibg.com/ibs_isc/ibs-02/IBS-02-p03.pdf"> http://www.foibg.com/ibs_isc/ibs-02/IBS-02-p03.pdf</a></li>
+<li><a href="http://www.cs.berkeley.edu/~fateman/msw/GreedyPointMatchWriteup.pdf"> http://www.cs.berkeley.edu/~fateman/msw/GreedyPointMatchWriteup.pdf</a></li>
+<li><a href="http://www.cedar.buffalo.edu/papers/articles/Online%5FOffline%5F2000.pdf"> http://www.cedar.buffalo.edu/papers/articles/Online%5FOffline%5F2000.pdf</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Optical%5Fcharacter%5Frecognition"> http://en.wikipedia.org/wiki/Optical%5Fcharacter%5Frecognition</a></li>
+<li><a href="http://wiki.github.com/alexgraves/RNNLIB"> http://wiki.github.com/alexgraves/RNNLIB</a></li>
+<li><a href="http://code.google.com/p/tesseract-ocr/"> http://code.google.com/p/tesseract-ocr/</a></li>
+<li><a href="http://code.google.com/p/pytesser/"> http://code.google.com/p/pytesser/</a></li>
+<li><a href="http://openid.net/get/"> http://openid.net/get/</a></li>
+</ul>
+</div>
+</body>
+</html>

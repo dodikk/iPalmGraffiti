@@ -4,11 +4,11 @@
 #include "GRTypes.h"
 
 
-typedef struct RGGraffitiRecognizerStateStruct
+typedef struct GRGraffitiRecognizerStateStruct
 {
    CGFloat_vt xPoints;
    CGFloat_vt yPoints;
 }
-RGGraffitiRecognizerState;
+GRGraffitiRecognizerState;
 
 #endif //__RGGraffitiRecognizerState_H__

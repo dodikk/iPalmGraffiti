@@ -1,7 +1,10 @@
+#import "GRGraffitiAlphabets.h"
 #import <Foundation/Foundation.h>
 
 
-@interface GRImageRecognizer : NSObject 
+@protocol GRImageRecognizer < NSObject >
+
++(id<GRImageRecognizer>)recognizerWithAlphabetId:( GRGraffitiAlphabets )alphabet_id_;
 
 -(NSArray*)recognizeLetterByXPoints:( CGFloat* )x_points_
                             yPoints:( CGFloat* )y_points_

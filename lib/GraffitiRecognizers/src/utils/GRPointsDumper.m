@@ -3,6 +3,30 @@
 
 @implementation GRPointsDumper
 
++(NSString*)dumpToStringXPoints:( CGFloat* )x_points_
+                        yPoints:( CGFloat* )y_points_
+                          count:( NSUInteger )points_count_
+{
+   NSMutableString* result_string_ = [ NSMutableString string ];
+   [ result_string_ appendFormat: @"%d", points_count_ ];
+
+  
+   // dump x points
+   for ( NSUInteger point_index_ = 0; point_index_ < points_count_; ++point_index_ )
+   {
+      [ result_string_ appendFormat: @"\t%f", x_points_[ point_index_ ] ];
+   }
+   
+   // dump y points
+   for ( NSUInteger point_index_ = 0; point_index_ < points_count_; ++point_index_ )
+   {
+      [ result_string_ appendFormat: @"\t%f", y_points_[ point_index_ ] ];
+   }
+
+   return result_string_;
+}
+
+
 +(void)dumpToFileXPoints:( CGFloat* )x_points_
                  yPoints:( CGFloat* )y_points_
                    count:( NSUInteger )points_count_
@@ -18,21 +42,11 @@
       return;
    }
 
-   NSMutableString* result_string_ = [ NSMutableString string ];
-   [ result_string_ appendFormat: @"%d", points_count_ ];
+   NSString* result_string_ = [ self dumpToStringXPoints: x_points_ 
+                                                 yPoints: y_points_ 
+                                                   count: points_count_ ];
    
-   // dump x points
-   for ( NSUInteger point_index_ = 0; point_index_ < points_count_; ++point_index_ )
-   {
-      [ result_string_ appendFormat: @"\t%f", x_points_ ];
-   }
-
-   // dump y points
-   for ( NSUInteger point_index_ = 0; point_index_ < points_count_; ++point_index_ )
-   {
-      [ result_string_ appendFormat: @"\t%f", y_points_ ];
-   }
-   
+  
 
    NSString* root_path_ = [ documents_dirs_ objectAtIndex: 0 ];
    

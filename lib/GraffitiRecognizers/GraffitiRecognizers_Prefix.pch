@@ -1,4 +1,8 @@
 #ifdef __OBJC__
+   #import "GRLogUtils.h"
+   #import "GRBundleManager.h"
+
+   #import <Accelerate/Accelerate.h>
    #import <Foundation/Foundation.h>
    #import <UIKit/UIKit.h>
 #endif

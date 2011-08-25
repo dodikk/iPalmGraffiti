@@ -1,15 +1,15 @@
 #import "GRGraffitiGestureRecognizer.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
 
-#include "RGGraffitiRecognizerState.h"
+#include "GRGraffitiRecognizerState.h"
 #import  "GRImageRecognizersFactory.h"
 #import  "GRImageRecognizer.h"
 #import  "GRPointsDumper.h"
 
 @interface GRGraffitiGestureRecognizer ()
 
-@property ( nonatomic, retain ) NSMutableArray* mDetectedLetters;
-@property ( nonatomic, assign ) RGGraffitiRecognizerState graffitiState;
+@property ( nonatomic, retain ) NSMutableArray*           mDetectedLetters;
+@property ( nonatomic, assign ) GRGraffitiRecognizerState graffitiState   ;
 
 @end
 
@@ -17,9 +17,11 @@
 @implementation GRGraffitiGestureRecognizer
 
 @dynamic detectedLetters;
-@synthesize languageId       = _language_id;
-@synthesize mDetectedLetters = _m_detected_letters;
-@synthesize graffitiState = _graffiti_state;
+@synthesize languageId             = _language_id               ;
+@synthesize methodId               = _method_id                 ;
+@synthesize shouldDumpPointsToFile = _should_dump_points_to_file;
+@synthesize mDetectedLetters       = _m_detected_letters        ;
+@synthesize graffitiState          = _graffiti_state            ;
 
 -(void)dealloc
 {
@@ -32,6 +34,7 @@
 #pragma mark -
 #pragma mark Initialization
 -(id)initWithLanguage:( GRGraffitiAlphabets )language_id_
+    recognitionMethod:( GRRecognitionMethods )method_id_
                target:( id )target_
                action:( SEL )action_
 {
@@ -44,6 +47,7 @@
    }
    
    self.languageId = language_id_;
+   self.methodId   = method_id_  ;
    
    return self;
 }
@@ -116,8 +120,6 @@
           withEvent:( UIEvent* )event_
 {
    NSLog( @"[BEGIN] : GRGraffitiGestureRecognizer->touchesEnded:withEvent:" );
-   GRImageRecognizer* image_recognizer_ = [ GRImageRecognizersFactory alphabetById: self.languageId ];
-
 
    NSAssert( self.graffitiState.xPoints.size() == self.graffitiState.yPoints.size(),
              @"Point arrays dimensions do not match" );
@@ -136,11 +138,16 @@
    
    CGFloat* raw_x_data_ = &self.graffitiState.xPoints.at(0);
    CGFloat* raw_y_data_ = &self.graffitiState.yPoints.at(0);
-   
-   [ GRPointsDumper dumpToFileXPoints: raw_x_data_
-                              yPoints: raw_y_data_
-                                count: points_count_ ];
 
+   if ( self.shouldDumpPointsToFile )
+   {
+      [ GRPointsDumper dumpToFileXPoints: raw_x_data_
+                                 yPoints: raw_y_data_
+                                   count: points_count_ ];
+   }
+
+   id<GRImageRecognizer> image_recognizer_ = [ GRImageRecognizersFactory recognizerWithAlphabetId: self.languageId 
+                                                                                         methodId: self.methodId  ];
    NSArray* recognized_letters_ = [ image_recognizer_ recognizeLetterByXPoints: raw_x_data_
                                                                        yPoints: raw_y_data_
                                                                          count: points_count_ ];

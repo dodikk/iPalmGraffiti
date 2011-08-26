@@ -17,7 +17,8 @@ typedef signed long          slong;
 typedef unsigned long long   ulonglong;
 typedef signed long long     slonglong;
 
-typedef std::vector< CGFloat > CGFloat_vt;
+typedef std::vector< CGFloat >     CGFloat_vt   ;
+typedef CGFloat_vt::const_iterator CGFloat_vt_ci;
 
 
 #endif //__GR_TYPES_H__

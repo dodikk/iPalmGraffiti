@@ -1,0 +1,32 @@
+A 3 0 5 10 10 0 10 132 //StartBottomLeft | EndBottomRight
+B 6 0 0 0 3 3 0 0 10 7 7 10 10 65 //StartTopLeft | EndBottomLeft
+C 4 10 0 0 10 0 0 10 10 130 //StartTopRight | EndBottomRight
+D 5 0 0 10 10 0 10 0 0 10 10 68 //StartBottomLeft | EndBottomLeft
+E 7 10 0 0 3 0 0 10 0 0 5 5 5 10 10 130 //StartTopRight | EndBottomRight
+F 3 10 0 0 0 0 10 66 //StartTopRight | EndBottomLeft
+G 6 10 0 0 10 10 5 0 0 10 10 5 5 242 //StartTopRight | EndAny
+H 5 0 0 0 3 3 0 10 7 7 10 129 //StartTopLeft | EndBottomRight
+I 2 5 5 0 10 65 //StartTopLeft | EndBottomLeft
+J 3 10 10 0 0 10 10 82 //StartTopRight | EndBottomLeft | EndTopLeft
+K 4 10 0 0 10 0 10 0 10 130//StartTopRight | EndBottomRight
+L 3 0 0 10 0 10 10 129 //StartTopLeft | EndBottomRight
+M 5 0 0 5 10 10 10 0 5 0 10 132 //StartBottomLeft | EndBottomRight
+N 4 0 0 10 10 10 0 10 0 36 //StartBottomLeft | EndTopRight
+O 6 5 0 0 10 10 5 0 0 10 10 0 0 51 //StartTopLeft | StartTopRight | EndTopLeft | EndTopRight
+P 6 0 0 0 10 10 0 0 10 0 0 5 5 244 //StartBottomLeft | EndAny
+Q 5 4 0 0 4 4 0 0 4 4 7 255 //all
+R 7 0 0 0 10 10 0 10 0 10 0 0 5 5 10 244 //BottomLeft | EndAny
+S 6 10 0 0 10 10 0 0 2 4 6 8 10 66 //StartTopRight | EndBottomLeft
+T 3 0 8 8 0 0 10 129 //StartTopLeft | EndBottomRight
+U 3 0 5 10 0 10 0 33 //StartTopLeft | EndTopRight
+V 3 10 5 0 0 10 0 33 //StartTopLeft | EndTopRight
+V2 4 0 3 6 10 0 10 0 0 33 //StartTopLeft | EndTopRight
+W 5 0 0 5 10 10 0 10 5 10 0 33 //StartTopLeft | EndTopRight
+X 4 0 10 0 10 0 10 10 0 33 //StartTopLeft | EndTopRight
+Y 8 0 0 5 5 5 5 5 10 0 5 5 0 5 10 5 5 241 //StartTopLeft | EndAny
+Z 4 0 10 0 10 0 0 10 10 129 //StartTopLeft | EndBottomRight
+blank 4 0 3 5 10  5 5 5 5 33 //StartTopLeft | EndTopRight
+backspace 4 10 5 3 0  5 5 5 5 18 //StartTopRight | EndTopLeft
+U2 4 0 0 10 10 0 10 10 0 33 //StartTopLeft | EndTopRight
+P2 5 0 0 10 10 0 10 0 0 5 5 244 //StartBottomLeft | EndAny
+R2 6 0 0 10 10 0 10 10 0 0 5 5 10 132 //StartBottomLeft | EndBottomRight

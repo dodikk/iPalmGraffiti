@@ -1,0 +1,80 @@
+>>> StartTopLeft     = 1 << 0
+>>> StartTopRight    = 1 << 1
+>>> StartBottomLeft  = 1 << 2
+>>> StartBottomRight = 1 << 3
+>>> StartAny = StartTopLeft | StartTopRight | StartBottomLeft | StartBottomRight 
+>>> 
+>>> EndTopLeft       = 1 << 4
+>>> EndTopRight      = 1 << 5
+>>> EndBottomLeft    = 1 << 6
+>>> EndBottomRight   = 1 << 7
+>>> EndAny = EndTopLeft | EndTopRight | EndBottomLeft | EndBottomRight
+>>> 
+>>> Any = StartAny | EndAny
+>>> ######################
+... 
+>>> 
+>>> StartBottomLeft | EndBottomRight
+132
+>>> StartTopLeft | EndBottomLeft
+65
+>>> StartTopRight | EndBottomRight
+130
+>>> StartBottomLeft | EndBottomLeft
+68
+>>> StartTopRight | EndBottomRight
+130
+>>> StartTopRight | EndBottomLeft
+66
+>>> StartTopRight | EndAny
+242
+>>> StartTopLeft | EndBottomRight
+129
+>>> StartTopLeft | EndBottomLeft
+65
+>>> StartTopRight | EndBottomLeft | EndTopLeft
+82
+>>> StartTopRight | EndBottomRight
+130
+>>> StartTopLeft | EndBottomRight
+129
+>>> StartBottomLeft | EndBottomRight
+132
+>>> StartBottomLeft | EndTopRight
+36
+>>> StartTopLeft | StartTopRight | EndTopLeft | EndTopRight
+51
+>>> StartBottomLeft | EndAny
+244
+>>> 255
+255
+>>> StartBottomLeft | EndAny
+244
+>>> StartTopRight | EndBottomLeft
+66
+>>> StartTopLeft | EndBottomRight
+129
+>>> StartTopLeft | EndTopRight
+33
+>>> StartTopLeft | EndTopRight
+33
+>>> StartTopLeft | EndTopRight
+33
+>>> StartTopLeft | EndTopRight
+33
+>>> StartTopLeft | EndTopRight
+33
+>>> StartTopLeft | EndAny
+241
+>>> StartTopLeft | EndBottomRight
+129
+>>> StartTopLeft | EndTopRight
+33
+>>> StartTopRight | EndTopLeft
+18
+>>> StartTopLeft | EndTopRight
+33
+>>> StartBottomLeft | EndAny
+244
+>>> StartBottomLeft | EndBottomRight
+132

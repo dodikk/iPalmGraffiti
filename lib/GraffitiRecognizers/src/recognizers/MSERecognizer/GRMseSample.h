@@ -3,9 +3,11 @@
 #import <Foundation/Foundation.h>
 
 
-@interface GRMseSample : NSObject 
-
-@property ( nonatomic, assign ) GRGraffitiRecognizerState sampleData;
+@interface GRMseSample : NSObject < NSCopying >
+{
+@public
+   GRGraffitiRecognizerState sampleData;
+}
 @property ( nonatomic, assign ) GRStrokeConstraints       constraint;
 @property ( nonatomic, copy   ) NSString*                 answer    ;
 

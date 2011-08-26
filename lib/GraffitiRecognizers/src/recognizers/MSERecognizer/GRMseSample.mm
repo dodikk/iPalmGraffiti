@@ -4,7 +4,6 @@
 
 @implementation GRMseSample
 
-@synthesize sampleData = _sample_data;
 @synthesize constraint = _constraint ;
 @synthesize answer     = _answer     ;
 
@@ -18,9 +17,9 @@
 -(NSString*)description
 {
    NSMutableString* result_ = [ NSMutableString stringWithFormat: @"%@\t%d\t", self.answer, self.constraint ];
-   NSString* data_string_ = [ GRPointsDumper dumpToStringXPoints: &self.sampleData.xPoints.at(0)
-                                                         yPoints: &self.sampleData.yPoints.at(0)
-                                                           count: self.sampleData.xPoints.size() ];
+   NSString* data_string_ = [ GRPointsDumper dumpToStringXPoints: &self->sampleData.xPoints.at(0)
+                                                         yPoints: &self->sampleData.yPoints.at(0)
+                                                           count: self->sampleData.xPoints.size() ];
 
    [ result_ appendString: data_string_ ];
    return result_;
@@ -50,8 +49,8 @@
    // Parse points
    NSUInteger points_count_ = [ str_points_count_ intValue ];
    
-   self.sampleData.xPoints.clear();
-   self.sampleData.yPoints.clear();
+   self->sampleData.xPoints.clear();
+   self->sampleData.yPoints.clear();
    
    if ( 0 == points_count_ )
    {
@@ -59,8 +58,8 @@
    }
 
    
-   self.sampleData.xPoints.reserve( points_count_ );
-   self.sampleData.yPoints.reserve( points_count_ );
+   self->sampleData.xPoints.reserve( points_count_ );
+   self->sampleData.yPoints.reserve( points_count_ );
    for ( NSUInteger point_index_ = 0; point_index_ < points_count_; ++point_index_ )
    {
       NSString* str_x_ = [ items_ objectAtIndex: point_index_ + metadata_items_count_                 ];
@@ -69,8 +68,8 @@
       CGFloat x_ = [ str_x_ floatValue ];
       CGFloat y_ = [ str_y_ floatValue ];
       
-      self.sampleData.xPoints.push_back( x_ );
-      self.sampleData.yPoints.push_back( y_ );      
+      self->sampleData.xPoints.push_back( x_ );
+      self->sampleData.yPoints.push_back( y_ );      
    }
 }
 
@@ -126,6 +125,18 @@
    
    
    return [ self deserializeMultipleFromString: file_string_ ];
+}
+
+
+-(id)copyWithZone:( NSZone* )zone_
+{
+   GRMseSample* result_ = [ [ GRMseSample allocWithZone: zone_ ] init ];
+   
+   result_->_constraint = self.constraint;
+   result_->sampleData  = self->sampleData;
+   result_->_answer     = [ self.answer copyWithZone: zone_ ];
+   
+   return result_;
 }
 
 @end

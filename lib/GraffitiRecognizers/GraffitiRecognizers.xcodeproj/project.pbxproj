@@ -18,6 +18,8 @@
 		5390619813F28EDD00BF0469 /* GRGraffitiAlphabets.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390619613F28EDD00BF0469 /* GRGraffitiAlphabets.h */; };
 		5390620313F2981700BF0469 /* GRPointsDumper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5390620113F2981700BF0469 /* GRPointsDumper.h */; };
 		5390620413F2981700BF0469 /* GRPointsDumper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5390620213F2981700BF0469 /* GRPointsDumper.m */; };
+		53B99D361407B3FF00939DCF /* GRConstraintBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 53B99D341407B3FF00939DCF /* GRConstraintBuilder.h */; };
+		53B99D371407B3FF00939DCF /* GRConstraintBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B99D351407B3FF00939DCF /* GRConstraintBuilder.m */; };
 		53D3FACA14065AA700B83D24 /* GRRecognitionMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D3FAC914065AA700B83D24 /* GRRecognitionMethods.h */; };
 		53D3FACE14065C8200B83D24 /* GRMseRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D3FACC14065C8200B83D24 /* GRMseRecognizer.h */; };
 		53D3FACF14065C8200B83D24 /* GRMseRecognizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 53D3FACD14065C8200B83D24 /* GRMseRecognizer.mm */; };
@@ -47,6 +49,8 @@
 		5390619613F28EDD00BF0469 /* GRGraffitiAlphabets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRGraffitiAlphabets.h; sourceTree = "<group>"; };
 		5390620113F2981700BF0469 /* GRPointsDumper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRPointsDumper.h; sourceTree = "<group>"; };
 		5390620213F2981700BF0469 /* GRPointsDumper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRPointsDumper.m; sourceTree = "<group>"; };
+		53B99D341407B3FF00939DCF /* GRConstraintBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRConstraintBuilder.h; sourceTree = "<group>"; };
+		53B99D351407B3FF00939DCF /* GRConstraintBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRConstraintBuilder.m; sourceTree = "<group>"; };
 		53D3FAC914065AA700B83D24 /* GRRecognitionMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRRecognitionMethods.h; sourceTree = "<group>"; };
 		53D3FACC14065C8200B83D24 /* GRMseRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRMseRecognizer.h; sourceTree = "<group>"; };
 		53D3FACD14065C8200B83D24 /* GRMseRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GRMseRecognizer.mm; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 				53D3FB211406624A00B83D24 /* GRStrokeConstraints.h */,
 				53D3FBB01406830300B83D24 /* GRMseNormalizer.h */,
 				53D3FBB11406830300B83D24 /* GRMseNormalizer.mm */,
+				53B99D341407B3FF00939DCF /* GRConstraintBuilder.h */,
+				53B99D351407B3FF00939DCF /* GRConstraintBuilder.m */,
 			);
 			path = MSERecognizer;
 			sourceTree = "<group>";
@@ -215,6 +221,7 @@
 				53D3FB7414067B2C00B83D24 /* GRLogUtils.h in Headers */,
 				53D3FB9114067F9000B83D24 /* GRBundleManager.h in Headers */,
 				53D3FBB21406830300B83D24 /* GRMseNormalizer.h in Headers */,
+				53B99D361407B3FF00939DCF /* GRConstraintBuilder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +283,7 @@
 				53D3FB7514067B2C00B83D24 /* GRLogUtils.m in Sources */,
 				53D3FB9214067F9000B83D24 /* GRBundleManager.m in Sources */,
 				53D3FBB31406830300B83D24 /* GRMseNormalizer.mm in Sources */,
+				53B99D371407B3FF00939DCF /* GRConstraintBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
